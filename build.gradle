@@ -1,0 +1,38 @@
+group 'pl.setblack'
+version '1.0.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: "maven"
+
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+jar {
+    baseName "aljen"
+    into('/') {
+        from zipTree("lib/alienBridge.jar")
+    }
+}
+
+
+dependencies {
+    compile files('lib/alienBridge.jar')
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

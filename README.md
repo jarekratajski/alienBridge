@@ -2,4 +2,4 @@
 
 Small java wrapper fot alienware fx lights.
 
-This librayry uses jars created by jnaerator
+This library uses jars created by jnaerator
